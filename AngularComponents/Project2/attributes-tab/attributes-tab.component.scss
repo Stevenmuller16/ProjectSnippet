@@ -1,0 +1,58 @@
+.attributes-tab {
+  padding: 24px;
+
+  &__heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #050505;
+    margin-bottom: 32px;
+  }
+
+  &__form {
+    margin-bottom: 48px;
+  }
+
+  &__group {
+    margin-bottom: 32px;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8d8d8f;
+    margin-bottom: 8px;
+  }
+
+  &__input {
+    max-width: 244px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__skip-link {
+    font-size: 14px;
+    color: #ffb24a;
+    cursor: pointer;
+  }
+}
+
+
+.back {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__arrow {
+    margin-right: 10px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #303133;
+  }
+}

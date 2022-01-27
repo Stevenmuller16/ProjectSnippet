@@ -1,0 +1,35 @@
+<div class="status-line">
+  <app-multiple-requests-button [requests]="requests$|async" (selected)="requestSelected($event)">
+  </app-multiple-requests-button>
+  <div class="normal-text bold status-message">
+    {{ statusMessage$ | async }}
+  </div>
+  <div *ngIf="displayTime$ | async" class="green-round tiny-text">
+    <img src="assets/images/icons/time.svg" />
+    <span class="show-desktop">Estimated Time of Arrival:&nbsp;</span>
+    <span class="show-mobile">ETA:&nbsp;</span>
+    <span class="bold">{{ eta$ | async | date:'h:mm aa' }}</span>
+  </div>
+</div>
+<div class="minutes-line">
+  <div class="minutes-text there-soon normal-text bold">
+    <div *ngIf="displayArrival$ | async; else arrived">We'll be there soon!</div>
+    <ng-template #arrived>
+      <div>We've arrived!</div>
+    </ng-template>
+  </div>
+  <div class="minutes-border">
+    <div class="chevron upper"></div>
+    <div class="chevron lower"></div>
+  </div>
+  <div class="minutes-text minutes-remaining">
+    <ng-container
+      *ngIf="(displayTime$ | async) && (minutesRemaining$ | async) as minutesRemaining; else minutesPlaceholder">
+      <span class="huge-text">{{ minutesRemaining < 1 ? '...' : minutesRemaining }}</span>
+      <span *ngIf="minutesRemaining >= 1" class="small-text">
+        &nbsp;MIN<span *ngIf="minutesRemaining == 1">S</span>
+      </span>
+    </ng-container>
+    <ng-template #minutesPlaceholder><span class="huge-text">&nbsp;</span></ng-template>
+  </div>
+</div>

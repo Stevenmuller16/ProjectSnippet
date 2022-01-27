@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <!-- use ion-toolbar for a normal toolbar and ion-navbar for navigation -->
+    <ion-toolbar>
+      <ion-buttons left>
+        <!-- left aligned content here -->
+      </ion-buttons>
+
+      <ion-title>
+        <img item-start header-logo src="assets/images/logo/1.png">
+      </ion-title>
+
+      <ion-buttons right>
+        <button ion-button menuToggle>
+          <ion-icon class="icon-menu" name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingText="Pull to refresh"
+                          refreshingSpinner="circles"
+                          refreshingText="Refreshing...">
+  </ion-refresher-content>
+  </ion-refresher>
+  <home-layout [showBalanceObservable]="showBalanceTrigger"></home-layout>
+  <button class="btn" ion-button full (click)="addToHome(event)" *ngIf="showBtn">Add to my device</button>
+</ion-content>

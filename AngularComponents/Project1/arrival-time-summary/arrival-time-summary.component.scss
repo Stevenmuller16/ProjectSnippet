@@ -1,0 +1,112 @@
+@import 'src/assets/styles/variables';
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.status-line {
+    padding: 20px 60px 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: $break-small) {
+        padding: 10px;
+    }
+
+    & .status-message {
+        letter-spacing: 0.58px;
+    }
+}
+
+.green-round {
+    height: 40px;
+    border-radius: 20px;
+    background-color: $successColor;
+    color: $white;
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+
+    @media screen and (max-width: $break-small) {
+        padding: 7px;
+    }
+
+    & img {
+        height: 20px;
+        width: 20px;
+        margin-right: 10px;
+
+        @media screen and (max-width: $break-small) {
+            height: 16px;
+            width: 16px;
+            margin-right: 7px;
+        }
+    }
+}
+
+.minutes-line {
+    overflow: hidden;
+    position: relative;
+    background-color: $primaryColor;
+    height: 50px;
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: nowrap;
+}
+
+.minutes-text {
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.there-soon {
+    background-color: $primaryColorLighter;
+    width: 100%;
+
+    & .content {
+        align-self: center;
+    }
+}
+
+.minutes-border {
+    max-width: 40px;
+    display: flex;
+}
+
+.chevron {
+    width: 50px;
+    height: 50px;
+    background-color: $primaryColorLighter;
+    position: relative;
+
+    &.upper {
+        top: -20px;
+        left: -7px;
+        transform: rotate(-20deg);
+    }
+
+    &.lower {
+        top: 20px;
+        left: -27px;
+        transform: rotate(20deg);
+    }
+}
+
+.minutes-remaining {
+    @media screen and (min-width: $break-small + 1) {
+        min-width: calc(40% - 28px);
+        max-width: calc(40% - 28px);
+        padding: 0px 40px;
+    }
+
+    @media screen and (max-width: $break-small) {
+        padding-right: 30px;
+    }
+}
